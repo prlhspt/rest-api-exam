@@ -18,7 +18,6 @@ public class ResponseService {
 
         @Getter
         int code;
-
         @Getter
         String msg;
 
@@ -44,6 +43,11 @@ public class ResponseService {
         return result;
     }
 
+    public CommonResult getSuccessResult() {
+        CommonResult result = new CommonResult();
+        return result;
+    }
+
     // 실패 처리
     public CommonResult getFailResult() {
         CommonResult result = new CommonResult();
@@ -53,7 +57,7 @@ public class ResponseService {
         return result;
     }
 
-    // api 결과
+    // api 결과 세팅
     private void setSuccessResult(CommonResult result) {
         result.setSucess(true);
         result.setCode(CommonResponse.SUCESS.getCode());
