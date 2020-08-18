@@ -1,18 +1,16 @@
 package com.rest.api.controller.v1;
 
 import com.rest.api.entity.User;
-import com.rest.api.entity.UserJpaRepo;
 import com.rest.api.model.response.CommonResult;
 import com.rest.api.model.response.ListResult;
 import com.rest.api.model.response.SingleResult;
+import com.rest.api.repo.UserJpaRepo;
 import com.rest.api.service.ResponseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Api(tags = {"1. User"})
 @RequiredArgsConstructor
@@ -40,8 +38,8 @@ public class UserController {
     public SingleResult<User> save(@ApiParam(value = "회원아이디", required = true) @RequestParam String uid,
                      @ApiParam(value = "회원이름", required = true) @RequestParam String name ) {
         User user = User.builder()
-                .uid("prlhspt@naver.com")
-                .name("임현석")
+                .uid(uid)
+                .name(name)
                 .build();
         return responseService.getSingleResult(userJpaRepo.save(user));
     }

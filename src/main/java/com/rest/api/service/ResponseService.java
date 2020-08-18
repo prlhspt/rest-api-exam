@@ -51,7 +51,7 @@ public class ResponseService {
     // 실패 처리
     public CommonResult getFailResult() {
         CommonResult result = new CommonResult();
-        result.setSucess(false);
+        result.setSuccess(false);
         result.setCode(CommonResponse.FAIL.getCode());
         result.setMsg(CommonResponse.FAIL.getMsg());
         return result;
@@ -59,7 +59,7 @@ public class ResponseService {
 
     // api 결과 세팅
     private void setSuccessResult(CommonResult result) {
-        result.setSucess(true);
+        result.setSuccess(true);
         result.setCode(CommonResponse.SUCESS.getCode());
         result.setMsg(CommonResponse.SUCESS.getMsg());
     }
